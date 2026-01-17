@@ -1,0 +1,82 @@
+.flag-chain {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  pointer-events: none;
+  display: flex;
+  width: 100%;
+}
+
+.flag-chain-left {
+  left: 0;
+  justify-content: flex-start;
+}
+
+.flag-chain-right {
+  right: 0;
+  justify-content: flex-end;
+}
+
+.flag {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  margin: 0 5px;
+  position: relative;
+  animation: swingFlag 3s ease-in-out infinite;
+}
+
+.flag:nth-child(1) { border-top: 40px solid #ff69b4; animation-delay: 0s; }
+.flag:nth-child(2) { border-top: 40px solid #ffd1dc; animation-delay: 0.2s; }
+.flag:nth-child(3) { border-top: 40px solid #dda0dd; animation-delay: 0.4s; }
+.flag:nth-child(4) { border-top: 40px solid #ffb6d9; animation-delay: 0.6s; }
+.flag:nth-child(5) { border-top: 40px solid #ff91af; animation-delay: 0.8s; }
+.flag:nth-child(6) { border-top: 40px solid #ff69b4; animation-delay: 1s; }
+.flag:nth-child(7) { border-top: 40px solid #ffd1dc; animation-delay: 1.2s; }
+.flag:nth-child(8) { border-top: 40px solid #dda0dd; animation-delay: 1.4s; }
+
+@keyframes swingFlag {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  75% { transform: rotate(-5deg); }
+}
+
+.flag-chain::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    #ff69b4 0%, 
+    #ff69b4 12.5%, 
+    transparent 12.5%, 
+    transparent 13.5%,
+    #ff69b4 13.5%,
+    #ff69b4 25%,
+    transparent 25%,
+    transparent 26%
+  );
+  background-size: 80px 3px;
+  background-repeat: repeat-x;
+}
+
+@media (max-width: 768px) {
+  .flag-chain {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .flag {
+    border-left-width: 12px;
+    border-right-width: 12px;
+    margin: 0 2px;
+  }
+
+  .flag:nth-child(n+6) {
+    display: none;
+  }
+}
