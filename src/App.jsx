@@ -4,6 +4,7 @@ import Gallery3D from './components/Gallery3D';
 import Activities from './components/Activities';
 import WishesText from './components/WishesText';
 import FlagChain from './components/FlagChain';
+import Loader from './components/Loader';
 import birthdayMusic from './assets/happy_birthday.mp3';
 import './App.css';
 
@@ -45,6 +46,9 @@ function App() {
 
   return (
     <div className="App">
+      {/* Loader */}
+      <Loader />
+
       {/* Flag Decorations */}
       <FlagChain position="left" />
       <FlagChain position="right" />

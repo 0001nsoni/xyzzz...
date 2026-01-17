@@ -95,9 +95,8 @@ const Gallery3D = () => {
                     ))}
                 </div>
 
-                <div className="gallery-instructions">
-                    <p>✨ Hover over photos to see them up close ✨</p>
-                </div>
+                <br /><br /><br /><br />
+                <br /><br /><br /><br />
             </div>
         </section>
     );
